@@ -85,18 +85,33 @@
         .news-info h3 { font-size: 18px; margin-bottom: 12px; color: var(--gold); }
         .news-info p { font-size: 14px; color: #ccc; line-height: 1.5; }
 
-        /* --- About Section --- */
+        /* --- About Section (Aligned & Detailed) --- */
         .about-section {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;
-            background: rgba(10, 10, 10, 0.95); padding: 50px; border-radius: 20px; border: 1px solid #333;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            background: rgba(10, 10, 10, 0.95);
+            padding: 60px 40px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            backdrop-filter: blur(15px);
         }
-        .about-column h2 { color: var(--gold); margin-bottom: 30px; font-size: 26px; text-transform: uppercase; border-left: 4px solid var(--gold); padding-left: 15px; }
+
+        .about-column h2 { 
+            color: var(--gold); 
+            margin-bottom: 35px; 
+            font-size: 26px; 
+            text-transform: uppercase;
+            border-left: 4px solid var(--gold);
+            padding-left: 15px;
+        }
+
         .info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 30px; }
-        .info-item .check { color: var(--bullish); font-size: 20px; font-weight: 900; }
+        .info-item .check { color: var(--bullish); font-size: 20px; font-weight: 900; line-height: 1; }
         .info-content strong { display: block; color: var(--white); font-size: 17px; margin-bottom: 6px; }
         .info-content p { color: var(--gray); font-size: 14px; line-height: 1.6; }
 
-        /* --- Modal & Phone Fix --- */
+        /* --- Modal --- */
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 3000; }
         .modal { background: #111; padding: 40px; width: 90%; max-width: 450px; border-radius: 20px; border: 1px solid var(--gold); position: relative; }
         .close { position: absolute; top: 15px; right: 20px; color: #fff; cursor: pointer; font-size: 24px; }
@@ -104,14 +119,15 @@
         #form-wrap label { display: block; margin: 15px 0 5px; font-size: 13px; color: var(--gold); font-weight: 700; }
         #form-wrap input { width: 100%; padding: 14px; background: #000; border: 1px solid #333; color: #fff; border-radius: 8px; font-size: 16px; }
 
-        /* PHONE FIELD ALIGNMENT */
         .iti { width: 100% !important; margin-bottom: 5px; }
         .iti input { padding-left: 52px !important; }
 
         .submit-btn { width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 8px; font-weight: 900; margin-top: 25px; cursor: pointer; text-transform: uppercase; }
         
-        #success-box { display: none; text-align: center; }
-        #success-box h2 { color: var(--bullish); margin-bottom: 15px; }
+        /* Success Message Box */
+        #success-box { display: none; text-align: center; padding: 20px 0; }
+        #success-box h2 { color: var(--bullish); font-size: 24px; margin-bottom: 10px; }
+        #success-box p { color: #ccc; margin-bottom: 20px; }
 
         footer { text-align: center; padding: 60px 20px; color: #555; font-size: 13px; }
         @media (max-width: 800px) { main { padding-top: 170px; } }
@@ -136,7 +152,7 @@
         <div class="news-grid">
             <div class="news-card">
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=600&q=80"></div>
-                <div class="news-info"><h3>Whale Tracker</h3><p>Institutional wallets have shifted 45,000 BTC into cold storage during this morning's consolidation.</p></div>
+                <div class="news-info"><h3>Whale Tracker</h3><p>Institutional wallets shifted 45,000 BTC into cold storage during this morning's consolidation.</p></div>
             </div>
             <div class="news-card">
                 <div class="img-container"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80"></div>
@@ -148,6 +164,7 @@
             </div>
         </div>
 
+        <!-- EXPANDED ABOUT SECTION -->
         <section class="about-section">
             <div class="about-column">
                 <h2>The Difference</h2>
@@ -155,30 +172,59 @@
                     <span class="check">✓</span>
                     <div class="info-content">
                         <strong>Order Flow Analysis</strong>
-                        <p>We monitor the "Tape" to see where market makers place bids before the move happens.</p>
+                        <p>We monitor the "Tape" and Level 2 depth to see where institutional market makers are placing massive buy orders before price breakouts.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="check">✓</span>
+                    <div class="info-content">
+                        <strong>On-Chain Forensic Data</strong>
+                        <p>Our team tracks exchange inflows/outflows and dormant whale wallet reactivations to predict sell pressure before it hits retail exchanges.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="check">✓</span>
+                    <div class="info-content">
+                        <strong>Institutional Context</strong>
+                        <p>We correlate crypto price action with DXY (Dollar Index), Gold, and Tech sector indices to provide a 360-degree view of global liquidity.</p>
                     </div>
                 </div>
             </div>
+
             <div class="about-column">
                 <h2>Why Subscribe?</h2>
                 <div class="info-item">
                     <span class="check">✓</span>
                     <div class="info-content">
-                        <strong>Alpha Alerts</strong>
-                        <p>Receive immediate notifications on high-conviction swing trades and rotations.</p>
+                        <strong>Daily Alpha Alerts</strong>
+                        <p>Receive immediate SMS and Email notifications on high-conviction swing trades and emerging crypto sector rotations.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="check">✓</span>
+                    <div class="info-content">
+                        <strong>Weekly Strategy PDF</strong>
+                        <p>A 20-page institutional deep-dive delivered every Sunday evening, mapping out the precise trade plan for the coming week.</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="check">✓</span>
+                    <div class="info-content">
+                        <strong>Private Trading Network</strong>
+                        <p>Network with high-net-worth traders and professional analysts in our private, verified community terminal for high-level alpha.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>&copy; 2024 Crypto Daily Global. All Rights Reserved.</footer>
+    <footer>&copy; 2024 Crypto Daily Global. All Rights Reserved. Data via Binance.</footer>
 
     <div class="overlay" id="overlay">
         <div class="modal">
             <span class="close" onclick="closeModal()">&times;</span>
             <div id="form-wrap">
-                <h2 style="text-align: center; color: var(--gold); font-weight: 900; margin-bottom: 20px;">ACTIVATE TERMINAL</h2>
+                <h2 style="text-align: center; color: var(--gold); font-weight: 900; margin-bottom: 20px;">SUBSCRIBE NOW</h2>
                 <form id="cryptoForm">
                     <label>Full Name</label>
                     <input type="text" id="user_name" placeholder="John Doe" required>
@@ -191,9 +237,8 @@
                 </form>
             </div>
             <div id="success-box">
-                <h2>✔ ACCESS GRANTED</h2>
-                <p>Welcome to the inner circle. Data synced to terminal.</p>
-                <button class="submit-btn" onclick="closeModal()" style="margin-top:25px;">Enter Terminal</button>
+                <h2>Thank you for subscribing.</h2>
+                <button class="submit-btn" onclick="closeModal()">Close</button>
             </div>
         </div>
     </div>
@@ -231,10 +276,9 @@
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            btn.disabled = true; btn.innerText = "SYNCING...";
+            btn.disabled = true; btn.innerText = "PROCESSING...";
             
-            // PUT YOUR NEW GOOGLE SCRIPT URL HERE
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwMM8PdAB6yXCHT7naDV3kCLJXu7PZxIhiEmNRLihZpXgb55EILYV5zLfqM6r0RJul0/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxfplfKBa849mcnmZ--cHzN0F2gUZdrt_7gE8-94xcJEcepOD3E9iOE8GYoDWe3fUX1/exec';
 
             const formData = new FormData();
             formData.append('Full_Name', document.getElementById('user_name').value);
@@ -248,7 +292,7 @@
                     form.reset();
                 })
                 .catch(error => {
-                    status.innerText = "Connection Failed. Check script permissions.";
+                    status.innerText = "Connection Failed. Try again.";
                     status.style.color = "var(--bearish)";
                     btn.disabled = false; btn.innerText = "Activate Account";
                 });
